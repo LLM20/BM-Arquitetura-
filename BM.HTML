@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BM Arquitetura</title>
+  <link rel="icon" href="./img/logo.jpeg" type="image/jpeg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="BM.CSS">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body class="bg-black text-gray-200 font-inter">
+
+  <!-- HEADER -->
+  <header id="header" class="fixed w-full top-0 left-0 z-50 transition-all duration-500 bg-transparent">
+    <nav class="container mx-auto flex justify-between items-center px-6 py-4">
+      <div class="flex items-center gap-4">
+        <img src="./img/logo2.png" alt="BM Arquitetura" class="w-12 h-12 object-contain rounded" />
+        <div class="text-xl md:text-2xl font-playfair font-bold text-gold">BM ARQUITETURA</div>
+      </div>
+
+      <!-- menu desktop -->
+      <ul class="hidden md:flex space-x-8 font-medium">
+        <li><a href="#home" class="nav-link">Início</a></li>
+        <li><a href="#about" class="nav-link">Sobre Nós</a></li>
+        <li><a href="#portfolio" class="nav-link">Portfólio</a></li>
+        <li><a href="#contact" class="nav-link">Contato</a></li>
+      </ul>
+
+      <!-- hamburger -->
+      <button id="btn-menu" class="md:hidden p-2 rounded focus:outline-none" aria-label="Abrir menu">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+    </nav>
+
+    <!-- mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-black/95 w-full">
+      <ul class="flex flex-col gap-4 p-6 text-center">
+        <li><a href="#home" class="nav-link-mobile">Início</a></li>
+        <li><a href="#about" class="nav-link-mobile">Sobre Nós</a></li>
+        <li><a href="#portfolio" class="nav-link-mobile">Portfólio</a></li>
+        <li><a href="#contact" class="nav-link-mobile">Contato</a></li>
+      </ul>
+    </div>
+  </header>
+
+<!-- HERO -->
+<section id="home" class="relative h-screen flex items-center justify-center text-center overflow-hidden">
+  <!-- Imagem de fundo -->
+  <img src="./img/bm inteiro.jpeg" 
+       alt="Fachada de casa de luxo moderna" 
+       class="absolute inset-0 w-full h-full object-cover" 
+       loading="lazy">
+
+  <!-- Overlay degradê -->
+  <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80"></div>
+
+  <!-- Conteúdo -->
+  <div class="relative z-10 px-6 max-w-4xl" data-aos="fade-up">
+    <h1 class="text-4xl md:text-6xl font-playfair font-bold text-gold leading-tight mb-4">
+      Arquitetura que Inspira e Transforma
+    </h1>
+    <p class="text-lg md:text-xl text-gray-200 mb-8">
+      Soluções arquitetônicas exclusivas para projetos residenciais e comerciais de alto padrão.
+    </p>
+    <div class="flex flex-wrap gap-4 justify-center">
+      <a href="#portfolio" class="px-6 py-3 rounded-full bg-gold text-gray-900 font-semibold hover:scale-105 transition transform shadow-lg">
+        Conheça Nossos Projetos
+      </a>
+      <a href="#contact" class="px-6 py-3 rounded-full border-2 border-gold text-gold font-semibold hover:bg-gold hover:text-gray-900 transition transform hover:scale-105">
+        Solicitar Orçamento
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- SOBRE -->
+<section id="about" class="py-20 container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+  <!-- Imagem -->
+  <div class="flex justify-center" data-aos="fade-right">
+    <img src="./img/imgfundo.jpg" alt="Sobre Nós" class="rounded-lg shadow-lg object-cover h-[400px] w-full max-w-md">
+  </div>
+
+  <!-- Texto -->
+  <div data-aos="fade-left" class="flex flex-col justify-center">
+    <h2 class="text-3xl md:text-4xl font-bold text-gold mb-6">Sobre Nós</h2>
+    <p class="mb-4 text-gray-300 leading-relaxed">
+      Na BM Arquitetura, transformamos ideias em espaços únicos, unindo estética e funcionalidade. 
+      Cada projeto é planejado com precisão, criatividade e atenção aos detalhes.
+    </p>
+    <p class="text-gray-300 leading-relaxed">
+      Atuamos em projetos residenciais, comerciais e corporativos, sempre com foco em qualidade, inovação e satisfação do cliente.
+    </p>
+  </div>
+</section>
+
+<!-- PORTFÓLIO - Modelo Moderno com Filtragem Animada -->
+<section id="portfolio" class="py-20 bg-gray-900">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl font-bold text-gold text-center mb-10" data-aos="fade-up">Portfólio</h2>
+
+    <!-- Filtros -->
+    <div class="flex flex-wrap justify-center gap-3 mb-10" data-aos="fade-up">
+      <button class="filter-btn active px-5 py-2 rounded-full bg-gold text-gray-900 font-semibold hover:scale-105 transition" data-category="all">Todos</button>
+      <button class="filter-btn px-5 py-2 rounded-full border border-gold text-gold hover:bg-gold hover:text-gray-900 transition" data-category="residencial">Residencial</button>
+      <button class="filter-btn px-5 py-2 rounded-full border border-gold text-gold hover:bg-gold hover:text-gray-900 transition" data-category="comercial">Comercial</button>
+      <button class="filter-btn px-5 py-2 rounded-full border border-gold text-gold hover:bg-gold hover:text-gray-900 transition" data-category="interiores">Interiores</button>
+    </div>
+
+    <!-- Grid -->
+    <div id="portfolio-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <!-- Card -->
+
+<!--Residencial-->
+      <div class="portfolio-item residencial relative overflow-hidden rounded-lg shadow-lg group cursor-pointer transition-all duration-500" data-aos="fade-up">
+        <img src="./img/fachada1.png" alt="Projeto Residencial 1" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <h3 class="text-lg font-bold text-gold">Projeto Residencial</h3>
+          <p class="text-sm text-white mt-2">Design moderno com foco em conforto e estética.</p>
+        </div>
+      </div>
+      <div class="portfolio-item residencial relative overflow-hidden rounded-lg shadow-lg group cursor-pointer transition-all duration-500" data-aos="fade-up">
+        <img src="./img/fachada2.png" alt="Projeto Residencial 1" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <h3 class="text-lg font-bold text-gold">Projeto Residencial</h3>
+          <p class="text-sm text-white mt-2">Residencial exclusivo, onde o design contemporâneo se encontra com o bem-estar do dia a dia.</p>
+        </div>
+      </div>
+      <div class="portfolio-item residencial relative overflow-hidden rounded-lg shadow-lg group cursor-pointer transition-all duration-500" data-aos="fade-up">
+        <img src="./img/fachada3.png" alt="Projeto Residencial 1" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <h3 class="text-lg font-bold text-gold">Projeto Residencial</h3>
+          <p class="text-sm text-white mt-2">Mais que um lar: um projeto residencial com design moderno, conforto e beleza.</p>
+        </div>
+      </div>
+      <div class="portfolio-item residencial relative overflow-hidden rounded-lg shadow-lg group cursor-pointer transition-all duration-500" data-aos="fade-up">
+        <img src="./img/fachada4.png" alt="Projeto Residencial 1" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <h3 class="text-lg font-bold text-gold">Projeto Residencial</h3>
+          <p class="text-sm text-white mt-2">Residencial que combina arquitetura sofisticada, conforto e estética atemporal.</p>
+        </div>
+      </div>
+      <div class="portfolio-item residencial relative overflow-hidden rounded-lg shadow-lg group cursor-pointer transition-all duration-500" data-aos="fade-up">
+        <img src="./img/fachada5.png" alt="Projeto Residencial 1" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <h3 class="text-lg font-bold text-gold">Projeto Residencial</h3>
+          <p class="text-sm text-white mt-2">Projetado para você viver bem: modernidade, conforto e estilo em um só lugar.</p>
+        </div>
+      </div>
+      <div class="portfolio-item residencial relative overflow-hidden rounded-lg shadow-lg group cursor-pointer transition-all duration-500" data-aos="fade-up">
+        <img src="./img/fachada6.png" alt="Projeto Residencial 1" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <h3 class="text-lg font-bold text-gold">Projeto Residencial</h3>
+          <p class="text-sm text-white mt-2">Design moderno, pensado para unir conforto e estética em cada detalhe</p>
+        </div>
+      </div>
+
+<!--Comercial-->
+
+      <div class="portfolio-item comercial relative overflow-hidden rounded-lg shadow-lg group cursor-pointer transition-all duration-500" data-aos="fade-up">
+        <img src="./img/comecial1.png" alt="Projeto Comercial 1" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <h3 class="text-lg font-bold text-gold">Projeto Comercial</h3>
+          <p class="text-sm text-white mt-2">Ambiente corporativo com sofisticação.</p>
+        </div>
+      </div>
+      <div class="portfolio-item comercial relative overflow-hidden rounded-lg shadow-lg group cursor-pointer transition-all duration-500" data-aos="fade-up">
+        <img src="./img/comecial2.png" alt="Projeto Comercial 1" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <h3 class="text-lg font-bold text-gold">Projeto Comercial</h3>
+          <p class="text-sm text-white mt-2">Espaços comerciais modernos, que unem design elegante e praticidade no dia a dia.</p>
+        </div>
+      </div>
+      <div class="portfolio-item comercial relative overflow-hidden rounded-lg shadow-lg group cursor-pointer transition-all duration-500" data-aos="fade-up">
+        <img src="./img/comecial3.png" alt="Projeto Comercial 1" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <h3 class="text-lg font-bold text-gold">Projeto Comercial</h3>
+          <p class="text-sm text-white mt-2">Ambiente corporativo que inspira inovação, produtividade e sofisticação</p>
+        </div>
+      </div>
+      <div class="portfolio-item comercial relative overflow-hidden rounded-lg shadow-lg group cursor-pointer transition-all duration-500" data-aos="fade-up">
+        <img src="./img/comecial4.png" alt="Projeto Comercial 1" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <h3 class="text-lg font-bold text-gold">Projeto Comercial</h3>
+          <p class="text-sm text-white mt-2">Projetos comerciais criados para transmitir profissionalismo, conforto e estilo</p>
+        </div>
+      </div>
+      <div class="portfolio-item comercial relative overflow-hidden rounded-lg shadow-lg group cursor-pointer transition-all duration-500" data-aos="fade-up">
+        <img src="./img/comecial5.png" alt="Projeto Comercial 1" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <h3 class="text-lg font-bold text-gold">Projeto Comercial</h3>
+          <p class="text-sm text-white mt-2">Design corporativo contemporâneo, pensado para valorizar sua marca e seu espaço.</p>
+        </div>
+      </div>
+      <div class="portfolio-item comercial relative overflow-hidden rounded-lg shadow-lg group cursor-pointer transition-all duration-500" data-aos="fade-up">
+        <img src="./img/comecial6.png" alt="Projeto Comercial 1" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <h3 class="text-lg font-bold text-gold">Projeto Comercial</h3>
+          <p class="text-sm text-white mt-2">Mais do que um local de trabalho: ambientes sofisticados que refletem sua identidade</p>
+        </div>
+      </div>
+
+
+<!--interiores-->
+
+      <div class="portfolio-item interiores relative overflow-hidden rounded-lg shadow-lg group cursor-pointer transition-all duration-500" data-aos="fade-up">
+        <img src="./img/Interiores 1.png" alt="Projeto de Interiores 1" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <h3 class="text-lg font-bold text-gold">Projeto de Interiores</h3>
+          <p class="text-sm text-white mt-2">Espaço interno elegante e aconchegante.</p>
+        </div>
+      </div>
+         <div class="portfolio-item interiores relative overflow-hidden rounded-lg shadow-lg group cursor-pointer transition-all duration-500" data-aos="fade-up">
+        <img src="./img/Interiores 2.png" alt="Projeto de Interiores 1" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <h3 class="text-lg font-bold text-gold">Projeto de Interiores</h3>
+          <p class="text-sm text-white mt-2">Espaço interno elegante e aconchegante.</p>
+        </div>
+      </div>
+         <div class="portfolio-item interiores relative overflow-hidden rounded-lg shadow-lg group cursor-pointer transition-all duration-500" data-aos="fade-up">
+        <img src="./img/Interiores 3.png" alt="Projeto de Interiores 1" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <h3 class="text-lg font-bold text-gold">Projeto de Interiores</h3>
+          <p class="text-sm text-white mt-2">Espaço interno elegante e aconchegante.</p>
+        </div>
+      </div>
+         <div class="portfolio-item interiores relative overflow-hidden rounded-lg shadow-lg group cursor-pointer transition-all duration-500" data-aos="fade-up">
+        <img src="./img/Interiores 4.png" alt="Projeto de Interiores 1" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <h3 class="text-lg font-bold text-gold">Projeto de Interiores</h3>
+          <p class="text-sm text-white mt-2">Espaço interno elegante e aconchegante.</p>
+        </div>
+      </div>
+         <div class="portfolio-item interiores relative overflow-hidden rounded-lg shadow-lg group cursor-pointer transition-all duration-500" data-aos="fade-up">
+        <img src="./img/Interiores 5.png" alt="Projeto de Interiores 1" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <h3 class="text-lg font-bold text-gold">Projeto de Interiores</h3>
+          <p class="text-sm text-white mt-2">Espaço interno elegante e aconchegante.</p>
+        </div>
+      </div>
+         <div class="portfolio-item interiores relative overflow-hidden rounded-lg shadow-lg group cursor-pointer transition-all duration-500" data-aos="fade-up">
+        <img src="./img/interiores6.png" alt="Projeto de Interiores 1" class="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
+          <h3 class="text-lg font-bold text-gold">Projeto de Interiores</h3>
+          <p class="text-sm text-white mt-2">Espaço interno elegante e aconchegante.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- SCRIPT PARA FILTRAGEM -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  const items = document.querySelectorAll(".portfolio-item");
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      // Troca botão ativo
+      filterButtons.forEach(b => b.classList.remove("bg-gold", "text-gray-900"));
+      btn.classList.add("bg-gold", "text-gray-900");
+
+      const category = btn.getAttribute("data-category");
+
+      items.forEach(item => {
+        if (category === "all" || item.classList.contains(category)) {
+          item.style.display = "block";
+          setTimeout(() => {
+            item.style.opacity = "1";
+            item.style.transform = "scale(1)";
+          }, 50);
+        } else {
+          item.style.opacity = "0";
+          item.style.transform = "scale(0.8)";
+          setTimeout(() => {
+            item.style.display = "none";
+          }, 300);
+        }
+      });
+    });
+  });
+});
+</script>
+
+
+
+
+<!-- Arquitetos -->
+<section id="arquitetos" class="py-20 container mx-auto px-6">
+  <h2 class="text-4xl font-bold text-gold text-center mb-12" data-aos="fade-up">
+    Arquitetos da BM
+  </h2>
+
+  <div class="grid md:grid-cols-3 gap-8">
+    <!-- Arquiteto 1 -->
+    <div class="bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col items-center text-center" data-aos="fade-up">
+      <!-- Logo ou foto do arquiteto -->
+      <img src="./img/logo2.png" alt="Alife Bezerra Nascimento" class="w-24 h-24 rounded-full mb-4 border-2 border-gold object-cover">
+      <!-- Nome -->
+      <h3 class="text-xl font-bold text-gold mb-2">Alife Bezerra Nascimento</h3>
+      <!-- Especialidade -->
+      <p class="text-gray-300 italic">Arquiteto e Urbanista</p>
+    </div>
+
+    <!-- Arquiteto 2 -->
+    <div class="bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="100">
+      <img src="./img/logo2.png" alt="Gustavo Melo Rodrigues" class="w-24 h-24 rounded-full mb-4 border-2 border-gold object-cover">
+      <h3 class="text-xl font-bold text-gold mb-2">Gustavo Melo Rodrigues</h3>
+      <p class="text-gray-300 italic">Arquiteto e Urbanista</p>
+    </div>
+
+    <!-- Arquiteto 3 -->
+    <div class="bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="200">
+      <img src="./img/logo2.png" alt="Kaúly Silva Cameli" class="w-24 h-24 rounded-full mb-4 border-2 border-gold object-cover">
+      <h3 class="text-xl font-bold text-gold mb-2">Kaúly Silva Cameli</h3>
+      <p class="text-gray-300 italic">Arquiteta e Urbanista</p>
+    </div>
+  </div>
+</section>
+
+
+<section id="contact" class="py-20 container mx-auto px-6">
+  <h2 class="text-4xl font-bold text-gold text-center mb-4" data-aos="fade-up">
+    Fale Conosco
+  </h2>
+  <p class="text-center text-gray-300 mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="50">
+    Estamos prontos para transformar seu projeto em realidade. Preencha as informações abaixo para que possamos
+    entender melhor suas necessidades e entrar em contato com a solução ideal para você.
+  </p>
+
+  <form id="contact-form" class="max-w-xl mx-auto space-y-4" data-aos="fade-up" data-aos-delay="100">
+    <input type="text" id="name" placeholder="Seu nome completo" class="w-full p-3 rounded bg-gray-800 text-white" required>
+    
+    <input type="email" id="email" placeholder="Seu e-mail" class="w-full p-3 rounded bg-gray-800 text-white" required>
+    
+    <input type="tel" id="phone" placeholder="Seu telefone ou WhatsApp" class="w-full p-3 rounded bg-gray-800 text-white" required>
+
+    <select id="service" class="w-full p-3 rounded bg-gray-800 text-white" required>
+      <option value="" disabled selected>Selecione o tipo de serviço desejado</option>
+      <option value="Projeto Residencial">Projeto Residencial</option>
+      <option value="Projeto de Interiores">Projeto de Interiores</option>
+      <option value="Projeto Comercial">Projeto Comercial</option>
+      <option value="Reforma / Retrofit">Reforma / Retrofit</option>
+      <option value="Consultoria em Arquitetura">Consultoria em Arquitetura</option>
+      <option value="Outros">Outros</option>
+    </select>
+
+    <textarea id="message" rows="4" placeholder="Descreva brevemente seu projeto ou dúvida" class="w-full p-3 rounded bg-gray-800 text-white" required></textarea>
+    
+    <button type="submit" class="bg-gold text-black px-6 py-3 rounded hover-bg-gold w-full font-semibold">
+      Enviar pelo WhatsApp
+    </button>
+  </form>
+</section>
+
+<body>
+  <form id="contact-form"> 
+     </form>
+
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const service = document.getElementById('service').value;
+      const message = document.getElementById('message').value.trim();
+
+      const numeroWhatsApp = "5568992021835"; 
+
+      const texto = `Olá, meu nome é ${name}.
+Telefone/WhatsApp: ${phone}
+Serviço desejado: ${service}
+
+Mensagem:
+${message}`;
+
+      const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    });
+  </script>
+</body>
+
+
+<!-- Rodapé -->
+<footer class="relative text-gray-300 py-10 overflow-hidden">
+  <!-- Fundo com textura -->
+  <div class="absolute inset-0 bg-gray-900 opacity-95"></div>
+  <div class="absolute inset-0 bg- bg-center bg-repeat opacity-10"></div>
+
+  <div class="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-8">
+
+    <!-- Identidade e Marca -->
+    <div data-aos="fade-right">
+      <img src="./img/logo.png" alt="Logo da Empresa" class="w-28 mb-4">
+      <h2 class="text-2xl font-bold text-white mb-2">BM Arquitetura</h2>
+      <p class="text-gray-400 mb-4 leading-relaxed">
+        Projetando espaços únicos que unem funcionalidade, estética e inovação.
+      </p>
+      <span class="block text-sm text-gray-500">&copy; 2025 BM Arquitetura - Todos os direitos reservados.</span>
+    </div>
+
+    <!-- Redes Sociais e Portfólio -->
+<div data-aos="fade-left">
+  <h3 class="text-xl font-semibold text-white mb-4">Conecte-se conosco</h3>
+  <div class="flex space-x-4 mb-6">
+    <a href="https://www.instagram.com/bmarquiteturac?igsh=MXg2MWhycGI1d3djdw==" target="_blank" class="social-icon">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://wa.me/5568992021835" target="_blank" class="social-icon">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+</div>
+      <h3 class="text-lg font-semibold text-white mb-3">Veja nosso portfólio</h3>
+      <a href="#portfolio" class="portfolio-btn">
+        Acessar Portfólio
+      </a>
+    </div>
+
+<footer class="text-center py-6 border-t border-gray-800">
+    <h3 class="text-lg font-semibold text-white mb-2">Nosso Endereço</h3>
+    <p>Avenida Ceará, Nº 1546 – 1º Piso, Sala 1</p>
+    <p>WhatsApp: (68) 99202-1835</p>
+    <p>Instagram: @bmarquiteturac</p>
+  </footer>
+
+</footer>
+
+<!-- Font Awesome -->
+<head>
+  <meta charset="UTF-8">
+  <title>BM Arquitetura</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<!-- AOS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,
+    once: true
+  });
+</script>
+
+
+<!---Meu protifolio-->
+<footer class="rodape-dev">
+  <p>👨‍💻 Desenvolvedor do site</p>
+  <a href="desevolvedor.html" target="_blank" class="btn-portfolio">💻 Ver Portfólio</a>
+  <a href="https://wa.me/5568999304001" 
+     target="_blank" class="btn-contato">📃 Fale Comigo</a>
+</footer>
+
+<style>
+.rodape-dev {
+  background: linear-gradient(135deg, #2563eb, #0a0a0a);
+  color: white;
+  padding: 30px;
+  text-align: right;  
+  font-weight: bold;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.rodape-dev p {
+  margin: 0 0 10px;
+  font-size: 16px;
+}
+
+.rodape-dev a {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-portfolio {
+  background: #ffffff;
+  color: #2563eb;
+}
+
+.btn-contato {
+  background: #25D366;
+  color: white;
+}
+
+.rodape-dev a:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+</style>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="BM.JS"></script>
+
+
+</body>
+</html>

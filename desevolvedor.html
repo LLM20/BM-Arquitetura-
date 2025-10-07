@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfólio Premium - Lucas Menezes</title>
+
+<!-- Fontes e ícones -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+  * { box-sizing: border-box; scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+    color: #fff;
+    background: #0a0a0a;
+    overflow-x: hidden;
+  }
+
+  /* PARTICLES BACKGROUND */
+  #particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  /* NAVBAR */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(6px);
+    background: rgba(0,0,0,0.5);
+  }
+  nav .logo img { height: 50px; }
+  nav ul { list-style: none; display: flex; gap: 25px; }
+  nav ul li a { color: #fff; text-decoration: none; font-weight: 500; transition: 0.3s; }
+  nav ul li a:hover { color: #00ffbf; }
+  .menu-toggle { display: none; flex-direction: column; cursor: pointer; }
+  .menu-toggle div { width: 25px; height: 3px; background: #00ffbf; margin: 4px 0; }
+
+  /* HEADER */
+  header {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    animation: fadeIn 2s ease-in-out;
+  }
+  header h1 { font-size: 3rem; color: #00ffbf; text-shadow: 0 0 15px #00ffbf; }
+  header p { margin-top: 15px; font-size: 1.3rem; color: #fff; max-width: 600px; }
+  header a.cta {
+    margin-top: 30px;
+    padding: 15px 35px;
+    border-radius: 50px;
+    background: #00ffbf;
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 0 20px #00ffbf;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  header a.cta:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px #00ffbf;
+  }
+  @keyframes fadeIn { 0% { opacity: 0; transform: translateY(-20px); } 100% { opacity: 1; transform: translateY(0); } }
+
+  /* SOBRE */
+  #sobre { padding: 100px 20px; text-align: center; }
+  #sobre h2 { font-size: 2rem; color: #00ffbf; margin-bottom: 20px; }
+  #sobre p { max-width: 700px; margin: auto; font-size: 1.1rem; line-height: 1.8; }
+  #sobre img {
+    width: 180px;
+    height: 190px;
+    border-radius: 100%;
+    border: 3px solid #00ffbf;
+    margin-top: 50px;
+    transition: transform 0.3s;
+  }
+  #sobre img:hover { transform: rotate(10deg) scale(1.05); }
+
+  /* PORTFÓLIO 3D */
+  #projetos { padding: 100px 20px; perspective: 1000px; }
+  #projetos h2 { font-size: 2rem; color: #00ffbf; margin-bottom: 40px; text-align: center; }
+  .portfolio {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+  }
+  .card {
+    background: rgba(255,255,255,0.05);
+    border: 2px solid #00ffbf;
+    padding: 25px;
+    border-radius: 20px;
+    text-align: center;
+    transition: transform 0.4s, box-shadow 0.4s;
+    transform-style: preserve-3d;
+  }
+  .card:hover {
+    transform: rotateY(15deg) rotateX(10deg) translateY(-10px);
+    box-shadow: 0 0 30px #00ffbf;
+  }
+  .card img { width: 80px; height: 80px; margin-bottom: 10px; }
+  .card h3 { margin: 10px 0; color: #fff; }
+  .card p { color: #ccc; font-size: 1rem; }
+  .card a.btn { display: inline-block; margin-top: 15px; padding: 10px 22px; border-radius: 12px; background: #00ffbf; color: #000; font-weight: bold; text-decoration: none; transition: 0.3s; }
+  .card a.btn:hover { background: #00cc8f; }
+
+  /* GITHUB */
+  #github { padding: 100px 20px; text-align: center; background: rgba(0,255,191,0.05); }
+  #github h2 { font-size: 2rem; color: #00ffbf; margin-bottom: 20px; }
+  #github p { margin-bottom: 30px; font-size: 1.1rem; }
+  .btn-github {
+    background: #000; color: #fff; padding: 15px 30px; border-radius: 50px; font-weight: bold; text-decoration: none; box-shadow: 0 0 20px #000; transition: 0.3s;
+  }
+  .btn-github:hover { background: #fff; color: #000; box-shadow: 0 0 25px #00ffbf; }
+
+  /* CONTATO */
+  #contato { padding: 100px 20px; text-align: center; }
+  #contato h2 { font-size: 2rem; color: #00ffbf; margin-bottom: 20px; }
+  #contato p { margin-bottom: 30px; font-size: 1.1rem; }
+  .btn-whatsapp { background: #25D366; color: #fff; padding: 15px 30px; border-radius: 50px; font-weight: bold; box-shadow: 0 0 20px #25D366; transition: transform 0.3s; text-decoration: none; }
+  .btn-whatsapp:hover { transform: scale(1.05); background: #128C7E; box-shadow: 0 0 30px #128C7E; }
+
+  /* FOOTER */
+  footer { text-align: center; padding: 25px; color: #fff; background: rgba(0,0,0,0.2); border-top: 2px solid #00ffbf; }
+
+  /* RESPONSIVIDADE */
+  @media (max-width: 768px) {
+    nav ul { display: none; flex-direction: column; gap: 15px; position: absolute; top: 60px; right: 20px; background: rgba(0,0,0,0.8); padding: 15px; border-radius: 12px; }
+    nav ul.active { display: flex; }
+    .menu-toggle { display: flex; }
+  }
+
+  /* --- Ajustes Extras para Responsividade --- */
+@media (max-width: 500px) {
+  header h1 { font-size: 2rem; }
+  header p { font-size: 1rem; }
+  .card { padding: 15px; }
+}
+
+#sobre img, .card img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 600px) {
+  footer { font-size: 0.9rem; padding: 15px; }
+  .btn-whatsapp, .btn-github { width: 90%; display: inline-block; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- PARTICLES -->
+<div id="particles-js"></div>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="logo"><img src="./img/Lucas.jpeg" alt="Logo Lucas Menezes"></div>
+  <div class="menu-toggle" onclick="toggleMenu()"><div></div><div></div><div></div></div>
+  <ul id="menu">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#projetos">Projetos</a></li>
+    <li><a href="#github">GitHub</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+</nav>
+
+<!-- HEADER -->
+<header>
+  <h1>Bem-vindo ao meu mundo digital 🌐</h1>
+  <p>transformo ideias em experiências online únicas, com design moderno e performance impecável.</p>
+  <a href="#contato" class="cta">💡 Vamos Criar Juntos!</a>
+</header>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <h2>👨‍💻 Lucas Menezes</h2>
+  <p>Oi, eu sou o Lucas! 👋 Sou desenvolvedor e apaixonado por transformar ideias em sites que realmente fazem a diferença. Acredito que cada projeto deve ser único, unindo design moderno, performance e identidade própria. Se você procura um site criativo, profissional e que destaque a sua marca, bora trocar uma ideia! 🚀</p>
+  <img src="./img/foto_lucas.jpeg" alt="Lucas Menezes">
+</section>
+
+<!-- PORTFÓLIO -->
+<section id="projetos">
+  <h2>Projetos Premium 📂</h2>
+  <div class="portfolio">
+    <div class="card">
+      <img src="./img/Acreimpr.jpeg" alt="Acre Impressoras">
+      <h3>Acre Impressoras 🖨🔧</h3>
+      <p>Site voltado para manutenção de Impressoras e serviço técnico 🖨 .</p>
+      <a href="https://llm20.github.io/Acre-impressoras/" class="btn">Ver Projeto</a>
+    </div>
+    <div class="card">
+      <img src="./img/logo2.png" alt="BM Arquitetura">
+      <h3>BM Arquitetura 🏛️</h3>
+      <p>Um escritório de arquitetura, com projetos Premium , e transparente ao cliente.</p>
+      <a href="BM.HTML" class="btn">Ver Projeto</a>
+    </div>
+    <div class="card">
+      <img src="./img/babearia.logo.jpeg" alt="Empresa 3">
+      <h3>Praise Babearia ✂ </h3>
+      <p>Mais que um corte, uma obra de arte.</p>
+    </div>
+    <div class="card">
+      <img src="./img/Acre_jet.Serv.jpeg" alt="BM Arquitetura">
+      <h3>Acre Jet service 🏛️</h3>
+      <p>manutenção de Impressoras.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GITHUB -->
+<section id="github">
+  <h2>Meu GitHub <i class="fab fa-github"></i></h2>
+  <p>Acompanhe meus códigos e projetos em desenvolvimento.</p>
+  <a href="https://github.com/LLM20" target="_blank" class="btn-github"><i class="fab fa-github"></i> Ver GitHub</a>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <h2>Vamos Conversar 💬</h2>
+  <p>Entre em contato e vamos criar seu projeto digital premium!</p>
+
+  <!-- Campo para o cliente digitar o nome -->
+  <input type="text" id="nomeCliente" placeholder="Digite seu nome" style="padding:8px; margin-bottom:10px; width:80%; max-width:300px;">
+
+  <!-- Botão do WhatsApp -->
+  <a href="#" id="btnWhatsApp" class="btn-whatsapp" target="_blank">
+    <i class="fab fa-whatsapp"></i> Fale Comigo
+  </a>
+</section>
+
+<script>
+  const btnWhatsApp = document.getElementById('btnWhatsApp');
+  const nomeCliente = document.getElementById('nomeCliente');
+
+  btnWhatsApp.addEventListener('click', function(e) {
+    e.preventDefault(); // Evita comportamento padrão do link
+    const nome = nomeCliente.value.trim();
+    if(nome === "") {
+      alert("Por favor, digite seu nome para continuar.");
+      return;
+    }
+
+    // Seu número de WhatsApp
+    const numero = "5568999304001";
+
+    // Mensagem automática personalizada
+    const mensagem = `Olá ${nome}.Obrigado por entrar em contato 😊. Vamos criar um projeto exclusivo e feito especialmente para você. Me diga como você quer seu projeto`;
+
+    // Cria o link do WhatsApp
+    const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+
+    // Abre o WhatsApp em nova aba
+    window.open(url, "_blank");
+  });
+</script>
+
+<!-- FOOTER -->
+<footer>
+  <p>👨‍💻 Desenvolvido por Lucas Menezes - Todos os direitos reservados © 2025</p>
+</footer>
+
+<!-- SCRIPTS -->
+<script>
+function toggleMenu(){ document.getElementById('menu').classList.toggle('active'); }
+</script>
+
+<!-- PARTICLES.JS -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script>
+particlesJS('particles-js', {
+  "particles": {
+    "number": { "value": 80 },
+    "color": { "value": "#00ffbf" },
+    "shape": { "type": "circle" },
+    "opacity": { "value": 0.5, "random": true },
+    "size": { "value": 3, "random": true },
+    "line_linked": { "enable": true, "distance": 150, "color": "#00ffbf", "opacity": 0.4, "width": 1 },
+    "move": { "enable": true, "speed": 2 }
+  },
+  "interactivity": { "events": { "onhover": { "enable": true, "mode": "repulse" } } }
+});
+</script>
+
+
+</body>
+</html>
